@@ -1,32 +1,26 @@
+import React from 'react'
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
+import Cards from './components/Cards'
 import './App.css'
+import qna from './data'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const handleClick = () => {
+    let rand = Math.floor(Math.random() * 12);
+    setNum(rand);
+  }
+
+  const [num, setNum] = useState(0);
+  const {question, answer} = qna[num];
 
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1>JavaScript Questions and Answers</h1>
+      <h3>JavaScript is a very powerful client-side scripting language.</h3>
+      <h3>You can make your webpage more lively and interactive, with the help of JavaScript. </h3>
+      <h3>Number of cards: 12</h3>
+      <Cards question = {question} answer = {answer} />
+      <button onClick={handleClick}>next</button>
     </div>
   )
 }
