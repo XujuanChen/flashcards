@@ -1,8 +1,8 @@
 # flashcards
 
-# Web Development Project 2 - *Xujuan Chen*
+# Web Development Project 2 - *Javascript Q&A*
 
-Submitted by: **Your Name Here**
+Submitted by: **Xujuan Chene**
 
 This web app: **Javascript Q&A**
 
