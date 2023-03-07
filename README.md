@@ -1,6 +1,6 @@
 # flashcards
 
-# Web Development Project 2 - *Javascript Q&A*
+# Web Development Project 2 - *Flashcards*
 
 Submitted by: **Xujuan Chene**
 
