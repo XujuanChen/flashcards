@@ -44,7 +44,7 @@
     background-color: slategrey;
     color: white;
   }
-  .flip-card-front h3 {
+  .flip-card-front p {
     padding-top: 3rem;
   }
   /* Style the back side */
@@ -54,7 +54,7 @@
     transform: rotateY(180deg);
   }
 
-  .flip-card-back h3 {
+  .flip-card-back p {
     padding: 2rem;
   }
 
