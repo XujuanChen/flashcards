@@ -1,11 +1,12 @@
 .flip-card {
     background-color: transparent;
     width: 600px;
-    height: 350px;
+    height: 360px;
     border: 1px solid #f1f1f1;
     perspective: 1000px;
     margin: auto;
     border-radius: 16px;
+    margin-bottom: 10px;
   }
   
   /* This container is needed to position the front and back side */
@@ -44,9 +45,7 @@
     background-color: slategrey;
     color: white;
   }
-  .flip-card-front p {
-    padding-top: 3rem;
-  }
+
   /* Style the back side */
   .flip-card-back {
     background-color: slategrey;
@@ -59,13 +58,19 @@
   }
 
   .img-container {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     margin: auto;
   }
 
   .img-container img {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     object-fit: cover;
   }
+
+  .check-btn{
+    width: 40px;
+    border-radius: 50%;
+  }
+

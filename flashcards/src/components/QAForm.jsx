@@ -1,33 +1,59 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './QAForm.css'
 
-class QAForm extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {value: ''};
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-    }
+const QAForm = ({currItem}) =>  {
+  const [inputvalue, setInputvalue] = useState('');
+  const [message, setMessage] = useState('');
+  const [bordercolor, setBordercolor] = useState('');
+  const [streak, setStreak] = useState(0);
+  const [longsk, setLongsk] = useState(0);
 
-    handleChange(event) {
-      this.setState({value: event.target.value});
-    }
-  
-    handleSubmit(event) {
-      alert('A name was submitted: ' + this.state.value);
-      event.preventDefault();
-    }
-  
-    render() {
-      return (
-        <form className="form-container" onSubmit={this.handleSubmit}>
-          <label> <span>Guess the answer: </span> 
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
-          </label>
-            <button type="submit" value="Submit"> Submit</button>
-        </form>
-      );
+
+  const handleChange = (e) => {
+    setInputvalue(e.target.value)
+  }
+
+  const checkAnswer = () => {
+    let curr = streak;
+    if (currItem.id > 0 ) {
+      if (inputvalue.substring(0, 13).toLowerCase() == currItem.answer.substring(0, 13).toLowerCase()) {
+        setBordercolor('blueColor');
+        setMessage("Awesome!");
+        curr=streak+1;
+        setStreak(curr);
+      }else {
+        setBordercolor('redColor');
+        setMessage("Wrong!");
+        setStreak(0);
+      }
+      if (curr > longsk) {
+        setLongsk(curr);
+      }
     }
   }
 
-export default QAForm
+  return (
+    <form>
+    <label> <span>Guess the answer: </span> 
+      <input 
+        className={bordercolor} 
+        type="text" 
+        name = "inputvaluer"
+        value={inputvalue} 
+        placeholder="Type your answer"
+        onChange={handleChange} />
+    </label>
+    <button className='submit-btn' 
+      type="button"
+      onClick={checkAnswer}
+    > 
+    Submit
+    </button>
+    <p>Message: {message}</p>
+    <p>Current Streak: {streak}, Longest Streak: {longsk} </p>
+  </form>
+  );
+}
+
+
+  export default QAForm

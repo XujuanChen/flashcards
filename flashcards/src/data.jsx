@@ -1,4 +1,4 @@
-const qna = [
+const qnaData = [
     {
         id: 0,
         question: "Start",
@@ -91,4 +91,4 @@ const qna = [
         image: "https://www.freecodecamp.org/news/content/images/size/w1000/2022/09/Frame-70-1.png"
     },
 ];
-export default qna;
+export default qnaData;
