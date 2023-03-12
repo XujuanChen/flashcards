@@ -8,7 +8,6 @@ const QAForm = ({currItem}) =>  {
   const [streak, setStreak] = useState(0);
   const [longsk, setLongsk] = useState(0);
 
-
   const handleChange = (e) => {
     setInputvalue(e.target.value)
   }

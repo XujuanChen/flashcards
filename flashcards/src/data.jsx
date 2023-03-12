@@ -89,6 +89,6 @@ const qnaData = [
         backgroundcolor: "#12496ed9",
         answer: "JavaScript can access all the elements in a web page using the Document Object Model (DOM). The web browser creates a DOM of the webpage when the page is loaded.",
         image: "https://www.freecodecamp.org/news/content/images/size/w1000/2022/09/Frame-70-1.png"
-    },
+    }
 ];
 export default qnaData;

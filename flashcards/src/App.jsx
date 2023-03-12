@@ -8,19 +8,20 @@ import QAForm from './components/QAForm'
 function App() {
   const list = qnaData;
   const [items, setItems] = useState(list);
+  const [masters, setMasters] = useState([]);
   const [num, setNum] = useState(0);
 
   const currItem = items[num];
-  const len = list.length-1;
   const numCards = items.length-1;
-  const mastered = len - numCards;
+  const len = list.length-1;
+  const mastered = masters.length;
 
   const removeItem = (id) => {
-    if (id > 0 && id <12) {
-        const newItems = items.filter((item) =>
-        item.id !== id
-      )
-      setItems(newItems)
+    let newItems = items;
+    if (id > 0 && id < len) {
+        newItems = items.filter(item=>item.id !== id)
+      setItems(newItems);
+      setMasters([...masters, id]);
     } 
   }
 
