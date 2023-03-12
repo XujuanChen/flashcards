@@ -50,18 +50,23 @@ function App() {
     setNum(rand);
   }
   
+  const [curstreak, setCurstreak] = useState(0);
+  const [longest, setLongest] = useState(0);
+  const [msg, setMsg] = useState('');
   return (
     <div className="App">
       <h1>JavaScript Question & Answer</h1>
       <p>JavaScript is a very powerful client-side scripting language.</p>
       <p>Number of cards: {numCards}, Mastered Questions: {mastered} </p>
-
+      <p>Message: {msg}</p>
+      <p>Current Streak: {curstreak}, Longest Streak: {longest} </p>
       <Qnas currItem={currItem} removeItem={removeItem} />
-      <QAForm currItem={currItem} />
+      <QAForm currItem={currItem} setMsg={setMsg} setCurstreak={setCurstreak} setLongest={setLongest} />
 
       <button type="next" onClick={handlePrev}>⫷</button>
       <button type="next" onClick={handleNext}>⫸</button>
-      <button type="next" onClick={handleClick}>♻</button>
+      {/* <button type="next" onClick={handleClick}>♻</button> */}
+      <button type="next" onClick={handleClick} className='submit-btn'>Shuffle</button>
     </div>
   )
 }

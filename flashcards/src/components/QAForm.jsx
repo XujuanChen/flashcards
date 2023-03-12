@@ -1,9 +1,8 @@
 import React, {useState} from 'react'
 import './QAForm.css'
 
-const QAForm = ({currItem}) =>  {
+const QAForm = ({currItem, setMsg, setCurstreak, setLongest}) =>  {
   const [inputvalue, setInputvalue] = useState('');
-  const [message, setMessage] = useState('');
   const [bordercolor, setBordercolor] = useState('');
   const [streak, setStreak] = useState(0);
   const [longsk, setLongsk] = useState(0);
@@ -17,22 +16,25 @@ const QAForm = ({currItem}) =>  {
     if (currItem.id > 0 ) {
       if (inputvalue.substring(0, 13).toLowerCase() == currItem.answer.substring(0, 13).toLowerCase()) {
         setBordercolor('blueColor');
-        setMessage("Awesome!");
+        setMsg("Your answer is Correct!")
         curr=streak+1;
         setStreak(curr);
+        setCurstreak(curr);
       }else {
         setBordercolor('redColor');
-        setMessage("Wrong!");
+        setMsg("Sorry, not this answer!")
         setStreak(0);
+        setCurstreak(0);
       }
       if (curr > longsk) {
         setLongsk(curr);
+        setLongest(curr);
       }
     }
   }
 
   return (
-    <form>
+    <form className='form-container'>
     <label> <span>Guess the answer: </span> 
       <input 
         className={bordercolor} 
@@ -48,8 +50,8 @@ const QAForm = ({currItem}) =>  {
     > 
     Submit
     </button>
-    <p>Message: {message}</p>
-    <p>Current Streak: {streak}, Longest Streak: {longsk} </p>
+    {/* <p>{message}</p> */}
+    {/* <p>Current Streak: {streak}, Longest Streak: {longsk} </p> */}
   </form>
   );
 }
